@@ -243,3 +243,14 @@ a:hover {
         display: none !important;
     }
 }
+
+/* ===== CONTACT SECTION LINK FIX ===== */
+.contact-info .contact-item a {
+    color: var(--text-primary) !important;  /* force white */
+    text-decoration: none !important;      /* remove underline */
+}
+
+.contact-info .contact-item a:hover {
+    color: var(--accent-green) !important; /* glow green on hover */
+    text-shadow: var(--shadow-glow);
+}
