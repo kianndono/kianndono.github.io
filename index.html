@@ -355,7 +355,7 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">&lt;K_.ann&gt;</div>
+            <div class="logo">&lt;k_.ann&gt;</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -777,26 +777,6 @@ const projectData = {
             }
         ]
     },
-    biyahero: {
-        title: "BiyaHero - Ride-Sharing Mobile Application",
-        images: [
-            {
-                src: "images/projects/biyahero-1.jpg",
-                caption: "User Interface",
-                description: "Clean and intuitive mobile interface for requesting rides with real-time GPS tracking."
-            },
-            {
-                src: "images/projects/biyahero-2.jpg",
-                caption: "Driver Dashboard",
-                description: "Comprehensive driver panel showing ride requests, earnings, and route optimization."
-            },
-            {
-                src: "images/projects/biyahero-3.jpg",
-                caption: "Admin Panel",
-                description: "Full-featured admin dashboard for managing users, monitoring transactions, and generating reports."
-            }
-        ]
-    },
     dtr: {
         title: "DTR Application - Automated Time Record System",
         images: [
@@ -812,18 +792,63 @@ const projectData = {
             }
         ]
     },
+
+    biyahero: {
+        title: "BiyaHero - Ride-Sharing Mobile Application",
+        images: [
+            {
+                src: "images/Biyahero_LogSign.png",
+                caption: "Log In / Sign Up",
+                description: "Users log in with their email and password or register by providing basic details such as username, full name, email, and password. The system validates the information before granting access to the BiyaHero platform."
+            },
+            {
+                src: "images/Biyahero_UserBook.png",
+                caption: "User Homepage / Booking Process",
+                description: "Users select a payment method, set pickup and drop-off points on the map, and view real-time distance and fare updates. Once the route is confirmed, they finalize the booking by tapping Book Now."
+            },
+            {
+                src: "images/Biyahero_EditProf.png",
+                caption: "User Profile / Edit Account",
+                description: "Clicking the BiyaHero icon opens the profile page, where users can view account details, edit profile information, and access their booking history. Updates require confirmation to be saved or can be canceled anytime."
+            },
+             {
+                src: "images/Biyahero_UserReport.png",
+                caption: "Report",
+                description: "Allows users to submit concerns directly to the admin team for timely resolution."
+            },
+             {
+                src: "images/Biyahero_Driver.png",
+                caption: "Driver Homepage / Choose a booking",
+                description: "Drivers use the Look for Bookings button to view available rides, with details such as rider info, pickup/drop-off points, distance, fare, and payment method. A refresh option updates the list, and selecting View Trip opens the interactive map."
+            },
+             {
+                src: "images/Biyahero_Chat.png",
+                caption: "Driver's Profile / Chat Feature",
+                description: "Drivers can view their profile details, booking history, and update account credentials. Once a booking is accepted, the system confirms the match and provides options to Chat Rider for real-time communication or mark Rider Picked Up, updating the map to show only the current location and destination."
+            },
+             {
+                src: "images/Biyahero_Admin.png",
+                caption: "Admin Homepage / Driver Management",
+                description: "Admins can access the Add Driver function via a sidebar button, where they fill out a registration form with driver details (username, name, vehicle type, plate number, email, password, and license ID) and agree to the terms before registering. All drivers are listed in the Driver Accounts section, where admins can edit or delete profiles, with the option to save or cancel changes."
+            },
+
+             {
+                src: "images/Biyahero_AdminReport.png",
+                caption: "User Management / Report History",
+                description: "The User Accounts section mirrors driver management, allowing admins to view, edit, or delete profiles. The Reports section organizes user and driver reports into Pending, Resolved, and Spam for efficient issue handling."
+            }
+        ]
+    },
     summerbot: {
         title: "SummerBot - Clash of the Circuit Titans",
         images: [
             {
-                src: "images/projects/summerbot-1.jpg",
-                caption: "Robot Design",
-                description: "Award-winning SumoBot design featuring optimized weight distribution and sensor placement."
+                src: "images/TURBORAT.png",
             },
             {
-                src: "images/projects/summerbot-2.jpg",
-                caption: "Arduino Programming",
-                description: "C++ code implementation for autonomous navigation and opponent detection."
+                src: "images/TURBORAT2.jpg",
+                caption: "Best in Design Sumo Robot",
+                description: "Build and design a SumoBot, a small, autonomous robot created for robotic sumo wrestling matches. It uses sensors, motors, andprogramming to detect its opponent and push it out of the circular ring."
             }
         ]
     }
@@ -856,19 +881,25 @@ function openProjectModal(projectId) {
     const container = document.getElementById('projectImagesContainer');
     container.innerHTML = '';
     
-    project.images.forEach(image => {
-        const imageItem = document.createElement('div');
-        imageItem.className = 'project-image-item';
-        imageItem.innerHTML = `
-            <img src="${image.src}" alt="${image.caption}">
-            <div class="project-image-caption">
-                <h4>${image.caption}</h4>
-                <p>${image.description}</p>
-            </div>
-        `;
-        container.appendChild(imageItem);
-    });
-    
+   project.images.forEach(image => {
+    const imageItem = document.createElement('div');
+    imageItem.className = 'project-image-item';
+
+    // Use ternary operators to check if caption/description exist
+    const caption = image.caption ? `<h4>${image.caption}</h4>` : "";
+    const description = image.description ? `<p>${image.description}</p>` : "";
+
+    imageItem.innerHTML = `
+        <img src="${image.src}" alt="${image.caption || ''}">
+        <div class="project-image-caption">
+            ${caption}
+            ${description}
+        </div>
+    `;
+
+    container.appendChild(imageItem);
+});
+
     // Show modal
     projectModal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
