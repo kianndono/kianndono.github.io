@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiann A. Peñaredondo | Developer Portfolio</title>
+    <title>Kiann A. Peñaredondo | Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
@@ -72,7 +72,7 @@
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--accent-green);
-            text-shadow: var(--pixel-shadow);
+           
         }
 
         .nav-links {
@@ -359,7 +359,7 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">&lt;KIANN/&gt;</div>
+            <div class="logo">&lt;K_.ann&gt;</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -379,62 +379,90 @@
             Building intelligent systems that make a difference.
         </p>
         <div>
-            <a href="#projects" class="pixel-btn">VIEW PROJECTS</a>
             <a href="RESUME-KIANN_PEÑAREDONDO.pdf" class="pixel-btn" target="_blank">DOWNLOAD CV</a>
         </div>
     </section>
+
+        <!-- Divider -->
+    <div class="custom-divider">
+        <div class="divider-line"></div>
+        <div class="divider-dot"></div>
+        <div class="divider-line"></div>
+    </div>
 
     <!-- About Section -->
     <section id="about">
         <div class="section-header">
             <h2 class="section-title">ABOUT ME</h2>
-            <p class="section-subtitle">
-                Fresh IT graduate, aspiring developer and QA tester, eager to contribute to innovative projects.
-            </p>
         </div>
-        
-        <div class="grid-2">
-            <div class="card">
-                <h3 class="card-title">Background</h3>
-                <p>Bachelor of Science in Information Technology graduate from Pamantasan ng Lungsod ng Maynila, with experience in developing AI-powered applications, mobile apps, and web systems.</p>
+        <div class="card background-card" id="backgroundCard">
+    <p>Graduating magna cum laude with a Bachelor of Science in Information Technology from Pamantasan ng Lungsod ng Maynila, with experience in developing AI-powered applications, mobile apps, and web systems.</p>
+    <button class="pixel-btn view-profile-btn">VIEW PROFILE</button>
+</div>
+
+<!-- Modal for Profile -->
+<div class="profile-modal" id="profileModal">
+    <div class="modal-content">
+        <span class="modal-close" id="modalClose">&times;</span>
+        <div class="modal-body">
+            <div class="profile-image-container">
+                <img src="C:\Users\Kiann\OneDrive\Documents\GitHub\desktop-tutorial\kianndono.github.io\images\KIANN_PEÑAREDONDO_GRAD.jpg" alt="Kiann Peñaredondo" class="modal-profile-image">
             </div>
-            
-            <div class="card">
-                <h3 class="card-title">Specializations</h3>
-                <div class="tech-stack">
-                    <span class="tech-pill">React Native</span>
-                    <span class="tech-pill">Python/Flask</span>
-                    <span class="tech-pill">AI/ML</span>
-                    <span class="tech-pill">Firebase</span>
-                    <span class="tech-pill">C#/.NET</span>
-                    <span class="tech-pill">PHP/MySQL</span>
+            <div class="profile-info">
+                <h2>Kiann Arcena Peñaredondo</h2>
+                <div class="profile-description">
+                        <p>Graduating magna cum laude with a Bachelor of Science in Information Technology from Pamantasan ng Lungsod ng Maynila in October 2025. I have comprehensive experience in developing AI-powered applications, mobile apps, and web systems. Throughout my academic journey and professional experiences, I have cultivated a deep passion for integrating artificial intelligence and machine learning technologies into practical, user-centric solutions.</p>
+                        
+                        <p>My expertise spans across multiple domains of software development, from creating emotional wellness platforms that leverage sentiment analysis and anomaly detection algorithms, to building sophisticated beauty salon management systems with intelligent staff-client matching capabilities. I have also developed full-featured ride-sharing applications with real-time GPS tracking and seamless payment integration.</p>
+                        
+                        <p>As a published researcher in the IEEE International Conference on Intelligent Cybernetics Technology & Applications (ICICyTA) 2024, I have demonstrated my commitment to advancing the field of AI-driven applications. My thesis project, EmoShown, showcases my ability to combine React Native mobile development with Python-based machine learning algorithms, including VADER sentiment analysis, Isolation Forest for anomaly detection, and collaborative filtering for personalized recommendations.</p>
+                        
+                        <p>Beyond development, I have gained valuable experience in quality assurance, technical support, and operations management through my work with government offices and event organizations. This diverse background has equipped me with strong problem-solving skills, attention to detail, and the ability to communicate technical concepts effectively to various stakeholders.</p>
+                        
+                        <p>I am eager to contribute my skills and continue learning in dynamic environments where innovation and user experience are prioritized. My goal is to create intelligent systems that not only solve complex problems but also make a meaningful difference in people's lives.</p>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+            
+<h3 style="text-align: left; color: var(--accent-green); font-size: 1.5rem; margin-bottom: 2rem; font-weight: 600;">SKILLS & EXPERTISE</h3>
 
-        <div class="skills-grid">
-            <div class="skill-item">
-                <i class="fab fa-react"></i>
-                <h4>Frontend</h4>
-                <p>React Native, HTML/CSS, JavaScript</p>
-            </div>
-            <div class="skill-item">
-                <i class="fas fa-server"></i>
-                <h4>Backend</h4>
-                <p>Python, PHP, C#, .NET</p>
-            </div>
-            <div class="skill-item">
-                <i class="fas fa-database"></i>
-                <h4>Database</h4>
-                <p>Firebase, MySQL, SQLite</p>
-            </div>
-            <div class="skill-item">
-                <i class="fas fa-brain"></i>
-                <h4>AI/ML</h4>
-                <p>VADER, Isolation Forest, ARIMA</p>
-            </div>
-        </div>
-    </section>
+<div class="skills-grid">
+    <div class="skill-item">
+        <i class="fab fa-react"></i>
+        <h4>Frontend</h4>
+        <p>React Native, HTML/CSS, JavaScript</p>
+    </div>
+    <div class="skill-item">
+        <i class="fas fa-server"></i>
+        <h4>Backend</h4>
+        <p>Python, PHP, C#, .NET</p>
+    </div>
+    <div class="skill-item">
+        <i class="fas fa-database"></i>
+        <h4>Database</h4>
+        <p>Firebase, MySQL, SQLite</p>
+    </div>
+    <div class="skill-item">
+        <i class="fas fa-brain"></i>
+        <h4>AI/ML</h4>
+        <p>VADER, Isolation Forest, ARIMA</p>
+    </div>
+    <div class="skill-item">
+        <i class="fas fa-clipboard-check"></i>
+        <h4>QA Testing</h4>
+        <p>Manual, Functional, Non-Functional Testing</p>
+    </div>
+</div>
+
+         <!-- Divider -->
+    <div class="custom-divider">
+        <div class="divider-line"></div>
+        <div class="divider-dot"></div>
+        <div class="divider-line"></div>
+    </div>
 
     <!-- Projects Section -->
     <section id="projects">
@@ -523,6 +551,12 @@
         
     </section>
     
+         <!-- Divider -->
+    <div class="custom-divider">
+        <div class="divider-line"></div>
+        <div class="divider-dot"></div>
+        <div class="divider-line"></div>
+    </div>
 
     <!-- Experience Section -->
     <section id="experience">
@@ -567,6 +601,13 @@
         </div>
     </section>
 
+         <!-- Divider -->
+    <div class="custom-divider">
+        <div class="divider-line"></div>
+        <div class="divider-dot"></div>
+        <div class="divider-line"></div>
+    </div>
+
     <!-- Contact Section -->
     <section id="contact">
         <div class="section-header">
@@ -580,25 +621,25 @@
             <!-- Gmail -->
             <div class="contact-item">
                 <i class="fas fa-envelope"></i>
-                <a href="mailto:kiannredondo@gmail.com">Email</a>
+                <a href="mailto:kiannredondo@gmail.com">kiannredondo@gmail.com</a>
             </div>
 
             <!-- Phone -->
             <div class="contact-item">
                 <i class="fas fa-phone"></i>
-                <a href="tel:09270131680">Mobile</a>
+                <a href="tel:09270131680">09270131680</a>
             </div>
 
             <!-- Facebook -->
             <div class="contact-item">
                 <i class="fab fa-facebook"></i>
-                <a href="https://www.facebook.com/kianndono" target="_blank">Facebook</a>
+                <a href="https://www.facebook.com/kianndono" target="_blank">Kiann Peñaredondo</a>
             </div>
 
             <!-- LinkedIn -->
             <div class="contact-item">
                 <i class="fab fa-linkedin"></i>
-                <a href="https://www.linkedin.com/in/kiannpeñaredondo" target="_blank">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/kiannpeñaredondo" target="_blank">Kiann Peñaredondo</a>
             </div>
         </div>
         
@@ -633,6 +674,53 @@
                 }
             });
         });
+    // Profile Modal Functionality
+    const viewProfileBtn = document.querySelector('.view-profile-btn');
+    const profileModal = document.getElementById('profileModal');
+    const modalClose = document.getElementById('modalClose');
+    const backgroundCard = document.getElementById('backgroundCard');
+
+    // Open modal with smooth transition
+    viewProfileBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        profileModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        
+        // Trigger reflow for transition
+        setTimeout(() => {
+            profileModal.classList.add('active');
+        }, 10);
+    });
+
+    function closeModal() {
+        profileModal.classList.add('closing');
+        profileModal.classList.remove('active');
+        document.body.style.overflow = '';
+        profileModal.style.display = 'none';
+        
+        // Wait for animation duration (adjust timeout to match your transition time)
+        setTimeout(() => {
+            profileModal.style.display = 'none';
+            profileModal.classList.remove('closing');
+        }, 400); // 400ms for most transitions
+    }
+
+    // Close modal when X is clicked
+    modalClose.addEventListener('click', closeModal);
+
+    // Close modal when clicking outside
+    profileModal.addEventListener('click', (e) => {
+        if (e.target === profileModal) {
+            closeModal();
+        }
+    });
+
+    // Close modal with ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && profileModal.classList.contains('active')) {
+            closeModal();
+        }
+    });
     </script>
 </body>
 </html>

@@ -13,6 +13,33 @@
     .section-title {
         font-size: 4.5rem;
     }
+    
+    /* Responsive */
+    .modal-body {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem 1.5rem;
+    }
+    
+    .profile-image-container {
+        position: relative;
+    }
+    
+    .modal-profile-image {
+        max-width: 250px;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .profile-info h2 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    
+    .profile-info h3 {
+        font-size: 1rem;
+        text-align: center;
+    }
 }
 
 /* Desktop */
@@ -61,4 +88,5 @@
     .timeline::before {
         left: 20px;
     }
+    
 }
