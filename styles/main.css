@@ -436,3 +436,164 @@ a:hover {
     box-shadow: 0 0 10px var(--accent-green);
     clip-path: polygon(2px 0, 100% 0, 100% calc(100% - 2px), calc(100% - 2px) 100%, 0 100%, 0 2px);
 }
+
+/* Project Card Enhancement */
+.project-card {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* pushes button down */
+}
+
+
+.view-project-btn {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.5rem;
+    width: 80%;
+    margin-top: 1rem; /* add space above button */
+}
+
+
+/* Project Modal */
+.project-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(0px);
+    opacity: 0;
+    transition: opacity 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.project-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.project-modal-content {
+    background: var(--bg-secondary);
+    border: 2px solid var(--accent-green);
+    max-width: 1000px;
+    width: 90%;
+    max-height: 90vh;
+    position: relative;
+    clip-path: polygon(30px 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 30px);
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55), 
+                opacity 0.3s ease;
+    overflow: hidden;
+}
+
+.project-modal.active .project-modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.project-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: var(--accent-green);
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.project-modal-close:hover {
+    color: var(--accent-cyan);
+    text-shadow: 0 0 10px var(--accent-cyan);
+    transform: rotate(90deg);
+}
+
+.project-modal-body {
+    padding: 3rem;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.project-modal-body h2 {
+    color: var(--accent-green);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-shadow: var(--pixel-shadow);
+}
+
+.project-images-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.project-image-item {
+    background: var(--bg-primary);
+    border: 1px solid var(--card-border);
+    padding: 1.5rem;
+    clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+}
+
+.project-image-item img {
+    width: 80%;
+    height: 500px; /* Fixed height */
+    object-fit: contain; /* makes sure it scales nicely */
+    
+    margin: 0 auto 1rem auto; /* centers image */
+    display: block;           /* required for margin auto */
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+
+.project-image-caption {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding: 0 1rem;
+}
+
+.project-image-caption h4 {
+    color: var(--accent-cyan);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* Scrollbar for project modal */
+.project-modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.project-modal-body::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+.project-modal-body::-webkit-scrollbar-thumb {
+    background: var(--accent-green);
+    border-radius: 4px;
+}
+
+.project-modal-body::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-cyan);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .project-modal-body {
+        padding: 2rem 1.5rem;
+    }
+    
+    .project-image-item {
+        padding: 1rem;
+    }
+    
+    .project-image-item img {
+        height: 300px; /* Smaller height for mobile */
+    }
+}

@@ -583,3 +583,4 @@ window.PortfolioApp = {
     debounce,
     throttle
 };
+
