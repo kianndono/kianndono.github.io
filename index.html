@@ -7,7 +7,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><style>text{font-family:monospace;fill:%2300ff41;font-weight:bold}</style><text x='10' y='65' font-size='45'>&lt;k_.ann&gt;</text></svg>">
     <style>
+    
         * {
             margin: 0;
             padding: 0;
@@ -48,50 +50,144 @@
             z-index: -1;
         }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            z-index: 1000;
-            border-bottom: 1px solid var(--card-border);
-        }
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    z-index: 1000;
+    border-bottom: 1px solid var(--card-border);
+}
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent-green);
-           
-        }
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-green);
+    z-index: 1001;
+}
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
 
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-        }
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
 
-        .nav-links a:hover {
-            color: var(--accent-green);
-            text-shadow: 0 0 10px var(--accent-green);
-        }
+.nav-links a:hover {
+    color: var(--accent-green);
+    text-shadow: 0 0 10px var(--accent-green);
+}
+
+/* Hamburger Menu Button - Hidden on Desktop */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--accent-green);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Hamburger animation when active */
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+    /* Show hamburger button */
+    .mobile-menu-toggle {
+        display: flex !important;
+    }
+    
+    /* Hide and position nav links off-screen */
+    .nav-links {
+        position: fixed !important;
+        top: 0 !important;
+        right: -100% !important;
+        width: 70% !important;
+        max-width: 300px !important;
+        height: 100vh !important;
+        background: rgba(10, 10, 10, 0.98) !important;
+        backdrop-filter: blur(20px) !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 2rem !important;
+        padding: 2rem !important;
+        transition: right 0.4s ease !important;
+        border-left: 2px solid var(--accent-green) !important;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5) !important;
+        z-index: 999 !important;
+        margin: 0 !important;
+    }
+    
+    /* Show nav links when active */
+    .nav-links.active {
+        right: 0 !important;
+    }
+    
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.3s ease;
+    }
+    
+    .nav-links.active li {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    /* Staggered animation */
+    .nav-links.active li:nth-child(1) { transition-delay: 0.1s; }
+    .nav-links.active li:nth-child(2) { transition-delay: 0.2s; }
+    .nav-links.active li:nth-child(3) { transition-delay: 0.3s; }
+    .nav-links.active li:nth-child(4) { transition-delay: 0.4s; }
+    .nav-links.active li:nth-child(5) { transition-delay: 0.5s; }
+    
+    .nav-links a {
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+        display: block;
+    }
+}
 
         /* Sections */
         section {
@@ -207,32 +303,70 @@
         }
 
         /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
 
-        .skill-item {
-            background: var(--bg-secondary);
-            padding: 1rem;
-            text-align: center;
-            border: 1px solid var(--card-border);
-            transition: all 0.3s ease;
-            clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
-        }
+.skill-item {
+    background: var(--bg-secondary);
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid var(--card-border);
+    transition: all 0.3s ease;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    position: relative;
+    overflow: hidden;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-        .skill-item:hover {
-            border-color: var(--accent-green);
-            background: rgba(0,255,65,0.1);
-        }
+.skill-item:hover {
+    border-color: var(--accent-green);
+    background: rgba(0,255,65,0.1);
+}
 
-        .skill-item i {
-            font-size: 2rem;
-            color: var(--accent-green);
-            margin-bottom: 0.5rem;
-        }
+.skill-item i {
+    font-size: 2rem;
+    color: var(--accent-green);
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.skill-item h4 {
+    transition: all 0.3s ease;
+}
+
+/* Hide skill details by default */
+.skill-details {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-top: 0;
+}
+
+/* Show skill details on hover */
+.skill-item:hover .skill-details {
+    opacity: 1;
+    max-height: 100px;
+    margin-top: 0.5rem;
+}
+
+/* Optional: Make icon and title smaller on hover to make room */
+.skill-item:hover i {
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.skill-item:hover h4 {
+    font-size: 0.9rem;
+}
 
         /* Section Headers */
         .section-header {
@@ -295,10 +429,6 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
             section {
                 padding: 4rem 1rem 2rem;
             }
@@ -352,19 +482,28 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">&lt;k_.ann&gt;</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    
+   <!-- Navigation -->
+<nav>
+    <div class="nav-container">
+        <div class="logo">&lt;k_.ann&gt;</div>
+        
+        <!-- Hamburger Menu Button -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -430,27 +569,27 @@
     <div class="skill-item">
         <i class="fab fa-react"></i>
         <h4>Frontend</h4>
-        <p>React Native, HTML/CSS, JavaScript</p>
+        <p class="skill-details">React Native, HTML/CSS, JavaScript</p>
     </div>
     <div class="skill-item">
         <i class="fas fa-server"></i>
         <h4>Backend</h4>
-        <p>Python, PHP, C#, .NET</p>
+        <p class="skill-details">Python, PHP, C#, .NET</p>
     </div>
     <div class="skill-item">
         <i class="fas fa-database"></i>
         <h4>Database</h4>
-        <p>Firebase, MySQL, SQLite</p>
+        <p class="skill-details">Firebase, MySQL, SQLite</p>
     </div>
     <div class="skill-item">
         <i class="fas fa-brain"></i>
         <h4>AI/ML</h4>
-        <p>VADER, Isolation Forest, ARIMA</p>
+        <p class="skill-details">VADER, Isolation Forest, ARIMA</p>
     </div>
     <div class="skill-item">
         <i class="fas fa-clipboard-check"></i>
         <h4>QA Testing</h4>
-        <p>Manual, Functional, Non-Functional Testing</p>
+        <p class="skill-details">Manual, Functional, Non-Functional Testing</p>
     </div>
 </div>
 
@@ -533,7 +672,7 @@
         </div>
 
         <div class="card project-card" data-project="summerbot">
-            <h3 class="card-title">Summerbot</h3>
+            <h3 class="card-title">SummerBot</h3>
             <p class="card-subtitle">Clash of the Circuit Titans</p>
             <p class="card-date">May 2024 | SumoBot Competition</p>
             <p>Built and designed a SumoBot, a small autonomous robot for robotic sumo wrestling matches. Uses sensors, motors, and programming to detect opponents and push them out of the circular ring.</p>
@@ -741,6 +880,13 @@ const projectData = {
         title: "EmoShown - AI-Powered Emotional Wellness Hub",
         images: [
             {
+                type: "video", 
+                src: "vids/EmoShown App Video Demo.mp4",
+                caption: "EmoShown App Demo",
+                description: "Full demonstration of EmoShown's features and user interface."
+            },
+            
+            {
                 src: "images/EmoShown_Sentiment.png",
                 caption: "Sentiment Analysis",
                 description: "The Sentiment Analysis feature in EmoShown processes users' mood entries and journal logs to assess their emotional state. Utilizing the VADER (Valence Aware Dictionary and Sentiment Reasoner) algorithm, the system analyzes text-based inputs and calculates sentiment scores, categorizing emotions as positive, negative, or neutral."
@@ -761,19 +907,31 @@ const projectData = {
         title: "GlamTech - AI-Powered Beauty Salon System",
         images: [
             {
-                src: "images/projects/glamtech-1.jpg",
-                caption: "Booking System",
-                description: "User-friendly interface for booking appointments with real-time availability and automated scheduling."
+                type: "video", 
+                src: "vids/GlamTech_UserSide.mp4",
+                caption: "GlamTech Web Demo for Users",
+                description: "Full demonstration of GlamTech's features and user interface for Users."
             },
             {
-                src: "images/projects/glamtech-2.jpg",
-                caption: "Staff Matching Algorithm",
-                description: "Decision tree algorithm matching clients with stylists based on preferences, expertise, and historical data."
+                type: "video", 
+                src: "vids/GlamTech_AdminSide.mp4",
+                caption: "GlamTech Web Demo for Admin",
+                description: "Full demonstration of GlamTech's features and user interface for Admin."
             },
             {
-                src: "images/projects/glamtech-3.jpg",
-                caption: "Resource Forecasting",
-                description: "ARIMA forecasting model predicting resource needs and optimizing inventory management."
+                src: "images/GlamTech_DecisionTree.png",
+                caption: "AI-Powered Booking System",
+                description: "Implements decision tree algorithms to intelligently match clients with the most suitable staff based on preferences, skills, and availability, reducing scheduling conflicts and improving customer satisfaction."
+            },
+            {
+                src: "images/GlamTech_ARIMA1.png",
+                caption: "Demand Forecasting with ARIMA",
+                description: "Utilizes ARIMA time-series forecasting to predict customer demand trends, enabling efficient resource allocation, staff scheduling, and inventory planning for peak and off-peak periods."
+            },
+            {
+                src: "images/GlamTech_Performance.png",
+                caption: "Systemized Logbook and Analytics",
+                description: "Provides a centralized digital logbook that records appointments, staff performance, sales, and commission data, with built-in analytics for generating insights and supporting data-driven decision-making."
             }
         ]
     },
@@ -796,6 +954,13 @@ const projectData = {
     biyahero: {
         title: "BiyaHero - Ride-Sharing Mobile Application",
         images: [
+            {
+                type: "video", 
+                src: "vids/BiyaHero_Video Demo.mp4",
+                caption: "BiyaHero App Demo",
+                description: "Full demonstration of BiyaHero's features and user interface."
+            },
+
             {
                 src: "images/Biyahero_LogSign.png",
                 caption: "Log In / Sign Up",
@@ -848,7 +1013,7 @@ const projectData = {
             {
                 src: "images/TURBORAT2.jpg",
                 caption: "Best in Design Sumo Robot",
-                description: "Build and design a SumoBot, a small, autonomous robot created for robotic sumo wrestling matches. It uses sensors, motors, andprogramming to detect its opponent and push it out of the circular ring."
+                description: "Build and design a SumoBot, a small, autonomous robot created for robotic sumo wrestling matches. It uses sensors, motors, and programming to detect its opponent and push it out of the circular ring."
             }
         ]
     }
@@ -877,28 +1042,37 @@ function openProjectModal(projectId) {
     // Set title
     document.getElementById('projectModalTitle').textContent = project.title;
     
-    // Generate images
+    // Generate images and videos
     const container = document.getElementById('projectImagesContainer');
     container.innerHTML = '';
     
-   project.images.forEach(image => {
-    const imageItem = document.createElement('div');
-    imageItem.className = 'project-image-item';
+    project.images.forEach(item => {
+        const mediaItem = document.createElement('div');
+        mediaItem.className = 'project-image-item';
 
-    // Use ternary operators to check if caption/description exist
-    const caption = image.caption ? `<h4>${image.caption}</h4>` : "";
-    const description = image.description ? `<p>${image.description}</p>` : "";
+        const caption = item.caption ? `<h4>${item.caption}</h4>` : "";
+        const description = item.description ? `<p>${item.description}</p>` : "";
 
-    imageItem.innerHTML = `
-        <img src="${image.src}" alt="${image.caption || ''}">
-        <div class="project-image-caption">
-            ${caption}
-            ${description}
-        </div>
-    `;
+        // Check if it's a video or image
+        let mediaElement = '';
+        if (item.type === 'video') {
+            mediaElement = `<video src="${item.src}" controls>
+                Your browser does not support the video tag.
+            </video>`;
+        } else {
+            mediaElement = `<img src="${item.src}" alt="${item.caption || ''}">`;
+        }
 
-    container.appendChild(imageItem);
-});
+        mediaItem.innerHTML = `
+            ${mediaElement}
+            <div class="project-image-caption">
+                ${caption}
+                ${description}
+            </div>
+        `;
+
+        container.appendChild(mediaItem);
+    });
 
     // Show modal
     projectModal.style.display = 'flex';
@@ -910,6 +1084,10 @@ function openProjectModal(projectId) {
 }
 
 function closeProjectModal() {
+    // Pause all videos when closing
+    const videos = document.querySelectorAll('.project-image-item video');
+    videos.forEach(video => video.pause());
+    
     projectModal.classList.add('closing');
     projectModal.classList.remove('active');
     projectModal.style.display = 'none';
@@ -934,6 +1112,46 @@ projectModal.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && projectModal.classList.contains('active')) {
         closeProjectModal();
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile Menu Toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (mobileMenuToggle && navLinks) {
+        const navLinksItems = navLinks.querySelectorAll('a');
+        
+        // Toggle menu
+        mobileMenuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileMenuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+            
+            console.log('Menu toggled'); // Debug log
+        });
+        
+        // Close menu when clicking on nav link
+        navLinksItems.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-container')) {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
+        });
+    } else {
+        console.error('Menu elements not found');
     }
 });
     </script>
